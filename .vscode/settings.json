@@ -1,0 +1,5 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.enableDebugLogs": true,
+  "prettier.plugins": ["prettier-plugin-tailwindcss"]
+}
