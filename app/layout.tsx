@@ -30,13 +30,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReactQueryProvider>
-          <Header />
-          <main className="mt-16 flex h-full w-full items-center justify-center">
-            <div className="flex h-full w-full max-w-5xl items-start justify-center">
-              {children}
-            </div>
-          </main>
-          <Footer />
+          <div>
+            <Header />
+            <main className="mt-16 flex h-full w-full items-center justify-center">
+              <div className="flex h-full w-full max-w-5xl items-start justify-center">
+                {children}
+              </div>
+            </main>
+            <Footer />
+          </div>
         </ReactQueryProvider>
       </body>
     </html>

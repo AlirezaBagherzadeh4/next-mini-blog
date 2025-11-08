@@ -8,8 +8,8 @@ export const BlogContent: React.FC<IPost> = ({
   image,
 }) => {
   return (
-    <div className="flex h-fit w-full flex-col items-center justify-between gap-4">
-      <div className="flex h-fit max-h-10 w-fit items-center justify-center overflow-hidden rounded-b-sm">
+    <div className="flex h-full w-full flex-col items-center justify-between gap-4">
+      <div className="flex h-full max-h-80 w-full items-center justify-center overflow-hidden rounded-b-lg">
         <Image
           src={image}
           alt={title}
@@ -22,7 +22,7 @@ export const BlogContent: React.FC<IPost> = ({
         <h1 className="w-full text-left text-2xl font-bold">{title}</h1>
         <p className="w-full text-left text-gray-400">By {author}</p>
       </div>
-      <p className="mt-4 w-full text-left">{body}</p>
+      <p className="mt-2 w-full text-left">{body}</p>
     </div>
   );
 };

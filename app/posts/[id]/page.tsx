@@ -20,7 +20,9 @@ const PostDetailPage = async ({ params }: IPostPageProps) => {
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.body.slice(0, 160)} />
       </head> */}
-      <BlogContent {...post} />
+      <div className="h-full w-full py-8">
+        <BlogContent {...post} />
+      </div>
     </>
   );
 };

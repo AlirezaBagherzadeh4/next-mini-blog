@@ -1,5 +1,5 @@
 export const routes = {
   home: () => '/',
-  blog: (id: number) => `/blog/${id}`,
+  post: (id: number) => `/posts/${id}`,
   about: () => '/about',
 };

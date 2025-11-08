@@ -2,17 +2,73 @@
   "posts": [
     {
       "id": 1,
-      "title": "Optimizing Next.js Performance",
-      "body": "Learn how to use ISR, caching, and React Query to achieve lightning-fast apps.",
-      "author": "John Doe",
-      "image": "https://placehold.co/600x400"
+      "title": "Understanding Dog Behavior and Communication",
+      "body": "Dogs communicate through subtle body language — from the position of their tails to the tone of their bark. Understanding these signals helps strengthen the bond between dogs and their humans. For example, a wagging tail can mean excitement or anxiety depending on its speed and height. Paying attention to these details makes training and companionship much easier.",
+      "author": "Sarah Johnson",
+      "image": "https://placedog.net/800/640?id=1"
     },
     {
       "id": 2,
-      "title": "React Query Best Practices",
-      "body": "React Query simplifies data fetching and caching with minimal boilerplate.",
-      "author": "Jane Smith",
-      "image": "https://placehold.co/600x400"
+      "title": "Best Nutrition Tips for Your Growing Puppy",
+      "body": "A healthy diet is the foundation of your puppy’s growth and development. Puppies need protein, calcium, and the right balance of fats for healthy bones and muscles. Avoid giving them table scraps or human food that might upset their digestive system. Always consult a vet to ensure your dog’s diet matches their breed, size, and activity level.",
+      "author": "Michael Lee",
+      "image": "https://placedog.net/800/640?id=2"
+    },
+    {
+      "id": 3,
+      "title": "How to Train Your Dog with Positive Reinforcement",
+      "body": "Positive reinforcement is one of the most effective training methods for dogs. By rewarding good behavior with treats or praise, your dog learns faster and enjoys the process. Avoid punishment-based approaches, as they can cause fear and anxiety. Consistency and patience are key — remember, training is as much about teaching as it is about building trust.",
+      "author": "Emily Carter",
+      "image": "https://placedog.net/800/640?id=3"
+    },
+    {
+      "id": 4,
+      "title": "The Importance of Daily Walks for Dogs",
+      "body": "Walking your dog isn’t just about exercise — it’s about stimulation and socialization too. Dogs explore the world through their noses, so letting them sniff during walks keeps their minds active. Regular walks also prevent obesity and behavioral problems caused by boredom. Make sure to adapt the length and pace of the walk to your dog’s breed and age.",
+      "author": "Daniel Morris",
+      "image": "https://placedog.net/800/640?id=4"
+    },
+    {
+      "id": 5,
+      "title": "How to Keep Your Dog’s Coat Healthy and Shiny",
+      "body": "A dog’s coat is a reflection of its overall health. Regular grooming removes dead hair, prevents matting, and keeps the skin clean. Different breeds require different grooming routines — short-haired dogs might need weekly brushing, while long-haired ones benefit from daily care. A balanced diet rich in omega-3 fatty acids also supports a glossy coat.",
+      "author": "Laura Bennett",
+      "image": "https://placedog.net/800/640?id=5"
+    },
+    {
+      "id": 6,
+      "title": "Dealing with Separation Anxiety in Dogs",
+      "body": "Separation anxiety is a common issue among dogs when left alone for too long. Symptoms can include barking, chewing furniture, or urinating indoors. To help your dog, start with short absences and gradually increase them. Leave them with toys or familiar scents, and avoid making a big deal when you leave or return. In severe cases, seek guidance from a professional trainer.",
+      "author": "David Miller",
+      "image": "https://placedog.net/800/640?id=6"
+    },
+    {
+      "id": 7,
+      "title": "Senior Dog Care: Keeping Your Old Friend Happy",
+      "body": "As dogs age, their energy levels drop and health needs change. Senior dogs may develop joint problems, reduced vision, or hearing loss. Regular vet check-ups, soft bedding, and gentle exercise can help maintain their comfort. Showing them patience and affection ensures they live their golden years with joy and dignity.",
+      "author": "Olivia Green",
+      "image": "https://placedog.net/800/640?id=7"
+    },
+    {
+      "id": 8,
+      "title": "Why Socializing Your Dog Matters",
+      "body": "Proper socialization during a dog’s early months helps prevent fear and aggression later in life. Introducing your dog to new people, environments, and other animals builds confidence. Always supervise interactions and use positive reinforcement to reward calm, curious behavior. A well-socialized dog is happier and more adaptable.",
+      "author": "James Parker",
+      "image": "https://placedog.net/800/640?id=8"
+    },
+    {
+      "id": 9,
+      "title": "The Science Behind a Dog’s Sense of Smell",
+      "body": "A dog’s nose is one of nature’s most powerful tools — capable of detecting scents at concentrations a thousand times lower than humans can. This incredible ability is used in search and rescue, detection work, and even medical diagnostics. Understanding your dog’s sense of smell can make training and playtime more engaging.",
+      "author": "Sophia Adams",
+      "image": "https://placedog.net/800/640?id=9"
+    },
+    {
+      "id": 10,
+      "title": "How to Build a Strong Bond with Your Dog",
+      "body": "Building trust with your dog takes time, patience, and consistency. Spend quality time playing, training, and simply being together. Avoid yelling or harsh discipline — instead, guide your dog calmly. Dogs thrive on love and structure, and a strong bond makes both training and everyday life more fulfilling.",
+      "author": "Benjamin Clark",
+      "image": "https://placedog.net/800/640?id=10"
     }
   ],
   "profile": {
