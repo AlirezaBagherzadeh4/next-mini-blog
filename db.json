@@ -4,13 +4,15 @@
       "id": 1,
       "title": "Optimizing Next.js Performance",
       "body": "Learn how to use ISR, caching, and React Query to achieve lightning-fast apps.",
-      "author": "John Doe"
+      "author": "John Doe",
+      "image": "https://placehold.co/600x400"
     },
     {
       "id": 2,
       "title": "React Query Best Practices",
       "body": "React Query simplifies data fetching and caching with minimal boilerplate.",
-      "author": "Jane Smith"
+      "author": "Jane Smith",
+      "image": "https://placehold.co/600x400"
     }
   ],
   "profile": {
