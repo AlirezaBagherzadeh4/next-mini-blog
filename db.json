@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Optimizing Next.js Performance",
+      "body": "Learn how to use ISR, caching, and React Query to achieve lightning-fast apps.",
+      "author": "John Doe"
+    },
+    {
+      "id": 2,
+      "title": "React Query Best Practices",
+      "body": "React Query simplifies data fetching and caching with minimal boilerplate.",
+      "author": "Jane Smith"
+    }
+  ],
+  "profile": {
+    "id": 1,
+    "name": "Ali",
+    "family": "Rezaei",
+    "email": "ali@example.com",
+    "mobile": "+989121234567",
+    "dob": "1995-06-21",
+    "favorites": ["React", "Next.js"],
+    "bio": "Frontend developer focused on performance optimization."
+  },
+  "favorites": [
+    { "id": 1, "label": "React" },
+    { "id": 2, "label": "Next.js" },
+    { "id": 3, "label": "TypeScript" },
+    { "id": 4, "label": "Tailwind" },
+    { "id": 5, "label": "React Query" }
+  ]
+}
