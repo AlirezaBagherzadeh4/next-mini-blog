@@ -9,7 +9,7 @@ export const BlogContent: React.FC<IPost> = ({
 }) => {
   return (
     <div className="flex h-full w-full flex-col items-center justify-between gap-4">
-      <div className="flex h-full max-h-80 w-full items-center justify-center overflow-hidden rounded-b-lg">
+      <div className="flex h-full max-h-80 w-full items-center justify-center overflow-hidden rounded-lg">
         <Image
           src={image}
           alt={title}
