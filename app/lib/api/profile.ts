@@ -2,10 +2,11 @@ import {
   ProfileUpdateInput,
   profileUpdateSchema,
 } from "@/app/validators/profile";
+import type { IUserProfile } from "@/app/types";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
 
-export const fetchProfile = async () => {
+export const fetchProfile = async (): Promise<IUserProfile> => {
   const res = await fetch(`${BASE_URL}/profile`, { next: { revalidate: 0 } });
   if (!res.ok) throw new Error("Failed to fetch profile");
   return res.json();
