@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { ReactQueryProvider } from './shared/lib/react-query';
 import { Header, Footer } from './views';
+import { Suspense } from 'react';
+import Loading from './loading';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -51,15 +53,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ReactQueryProvider>
-          <Header />
-          <main className="mt-[72px] flex h-fit w-full grow items-center justify-center">
-            <div className="flex h-full w-full items-start justify-center">
-              {children}
-            </div>
-          </main>
-          <Footer />
-        </ReactQueryProvider>
+        <Suspense fallback={<Loading />}>
+          <ReactQueryProvider>
+            <Header />
+            <main className="mt-16 flex h-fit w-full grow items-center justify-center">
+              <div className="flex h-full w-full items-start justify-center">
+                {children}
+              </div>
+            </main>
+            <Footer />
+          </ReactQueryProvider>
+        </Suspense>
       </body>
     </html>
   );
