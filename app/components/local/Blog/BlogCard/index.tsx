@@ -4,6 +4,7 @@ import type { IPost } from '@/app/shared/types';
 import Link from 'next/link';
 import { routes } from '@/app/shared/lib/routes';
 import Image from 'next/image';
+import { WordSlicer } from '@/app/shared/utils';
 
 export const BlogCard: React.FC<IPost> = ({
   id,
@@ -33,11 +34,7 @@ export const BlogCard: React.FC<IPost> = ({
           <h2 className="text-left text-lg leading-7 font-bold">{title}</h2>
           <p className="w-full text-left text-sm text-gray-400">By {author}</p>
         </div>
-        <p className="text-gray-600">
-          {body?.split(' ').length > 15
-            ? `${body.split(' ').slice(0, 15).join(' ')}...`
-            : body}
-        </p>
+        <p className="text-gray-600">{WordSlicer(body, 15)}</p>
         <span className="self-end text-base text-blue-500 group-hover:underline">
           Read more
         </span>

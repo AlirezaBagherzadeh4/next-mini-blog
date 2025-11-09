@@ -1,12 +1,12 @@
 import type { IPost } from '@/app/shared/types';
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
 export const fetchPosts = async (
   page: number,
   limit: number,
 ): Promise<{ data: IPost[]; totalPages: number }> => {
-  const res = await fetch(`${BASE_URL}/posts?_page=${page}&_limit=${limit}`, {
+  const res = await fetch(`${API_URL}/posts?_page=${page}&_limit=${limit}`, {
     cache: 'no-store',
   });
   if (!res.ok) throw new Error('Failed to fetch posts');
@@ -20,7 +20,7 @@ export const fetchPosts = async (
 
 export const fetchPostById = async (id: string): Promise<IPost> => {
   try {
-    const res = await fetch(`${BASE_URL}/posts/${id}`);
+    const res = await fetch(`${API_URL}/posts/${id}`);
     if (!res.ok) throw new Error('Failed to fetch posts');
     return res.json();
   } catch (err) {
