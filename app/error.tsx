@@ -5,7 +5,7 @@ import { ErrorCard } from './components';
 export default function Error() {
   return (
     <>
-      <ErrorCard code={500} message="Internal Server Error" />
+      <ErrorCard code={500} />
     </>
   );
 }

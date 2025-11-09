@@ -6,18 +6,21 @@ import { usePathname, useRouter } from 'next/navigation';
 
 export interface IErrorCard {
   code: number;
-  message: string;
 }
 
-export const ErrorCard: React.FC<IErrorCard> = ({ code, message }) => {
+export const ErrorCard: React.FC<IErrorCard> = ({ code }) => {
   const pathname = usePathname();
   const router = useRouter();
 
   return (
     <div className="flex h-full w-full items-center justify-center bg-black!">
-      <div className="flex h-fit w-fit flex-col items-center justify-center gap-4 text-white">
-        <Image src={`https://http.dog/${code}.jpg`} alt={String(code)} />
-        <p className="text-base font-light underline">{message}</p>
+      <div className="flex h-fit w-fit flex-col items-center justify-center gap-4 py-8 text-white">
+        <Image
+          src={`https://http.dog/${code}.jpg`}
+          alt={String(code)}
+          width={600}
+          height={400}
+        />
         <Button
           variant="secondary"
           onClick={() => {

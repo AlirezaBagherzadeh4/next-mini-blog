@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+html,
+body,
+#__next {
+  height: 100%;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -20,7 +26,9 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   background: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
