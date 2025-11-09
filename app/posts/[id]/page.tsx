@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { BlogContent } from '@/app/components';
+import { BlogContent } from '@/app/components/local';
 import { fetchPostById } from '@/app/shared/lib/api';
 
 interface IPostPageProps {

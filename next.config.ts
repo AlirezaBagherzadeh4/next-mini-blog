@@ -7,7 +7,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'placedog.net',
-        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'http.dog',
       },
     ],
   },

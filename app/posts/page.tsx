@@ -1,5 +1,5 @@
 import { fetchPosts } from '../shared/lib/api';
-import { BlogCard } from '../components';
+import { BlogCard } from '../components/local';
 
 export default async function Posts() {
   const posts = await fetchPosts();

@@ -1,3 +1,5 @@
+'use client';
+
 import type { IPost } from '@/app/shared/types';
 import Image from 'next/image';
 
