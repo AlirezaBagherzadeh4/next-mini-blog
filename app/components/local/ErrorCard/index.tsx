@@ -27,7 +27,7 @@ export const ErrorCard: React.FC<IErrorCard> = ({ code }) => {
             code === 500 ? router.push(pathname) : router.push('/');
           }}
         >
-          Try Again
+          {code === 500 ? 'Try Again' : 'Go Home'}
         </Button>
       </div>
     </div>

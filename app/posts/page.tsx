@@ -61,7 +61,7 @@ export default async function Posts({ searchParams }: IPostsPageProps) {
   return (
     <Layer>
       <div className="flex h-fit w-full flex-col items-center justify-between py-8">
-        <div className="grid h-full w-full grid-cols-3 gap-8">
+        <div className="grid h-full w-full grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
           {posts.map((post) => (
             <BlogCard key={post.id} {...post} />
           ))}
