@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <ReactQueryProvider>
           <Header />
-          <main className="mt-16 flex h-fit w-full grow items-center justify-center">
+          <main className="mt-[72px] flex h-fit w-full grow items-center justify-center">
             <div className="flex h-full w-full items-start justify-center">
               {children}
             </div>
