@@ -1,5 +1,7 @@
 import { House } from 'lucide-react';
 import Link from 'next/link';
+import { Suspense } from 'react';
+import ProfileLoading from './loading';
 
 export default function ProfileLayout({
   children,
@@ -14,7 +16,9 @@ export default function ProfileLayout({
         </Link>
       </div>
       <div className="flex h-full w-full items-center justify-center bg-inherit">
-        {children}
+        <div className="flex h-fit w-full max-w-lg items-center justify-center rounded-lg border border-black p-16">
+          <Suspense fallback={<ProfileLoading />}>{children}</Suspense>
+        </div>
       </div>
     </div>
   );

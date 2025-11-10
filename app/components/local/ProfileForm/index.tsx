@@ -49,7 +49,7 @@ export const ProfileForm: React.FC<IUserProfile> = ({
     <FormProvider {...formMethods}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex h-fit w-fit flex-col items-center justify-between gap-8 rounded-lg border border-black p-16"
+        className="flex h-fit w-fit flex-col items-center justify-between gap-8"
       >
         <div className="flex h-fit w-full items-center justify-between gap-4">
           <Field label="name" name="name" type="text" required />
