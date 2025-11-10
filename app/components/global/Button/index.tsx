@@ -30,7 +30,6 @@ export const Button: React.FC<IButton> = ({
       <span className="invisible px-1 whitespace-nowrap">
         {loading ? 'Loading...' : children}
       </span>
-
       <span className="absolute inset-0 flex items-center justify-center">
         <span
           className={`absolute flex items-center justify-center whitespace-nowrap transition-all duration-300 ${

@@ -30,7 +30,11 @@ export const Field: React.FC<IField> = ({
     <div
       className={`${className ?? ''} grid w-full max-w-sm items-center gap-3`}
     >
-      {label && <Label htmlFor={name}>{label}</Label>}
+      {label && (
+        <Label htmlFor={name} required={required}>
+          {label}
+        </Label>
+      )}
       <Input
         error={errors?.[name]?.message as string}
         id={name}

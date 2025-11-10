@@ -16,6 +16,7 @@ export const updateProfile = async (data: ProfileUpdateInput) => {
   const parsed = profileUpdateSchema.safeParse(data);
 
   if (!parsed.success) {
+    console.error('❌ Zod validation failed:', parsed.error.flatten());
     throw new Error(parsed.error.issues?.[0]?.message ?? 'Invalid input');
   }
 
