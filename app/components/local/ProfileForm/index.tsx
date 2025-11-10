@@ -32,7 +32,14 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
   const onSubmit = async (data: IUserProfile) => {
     try {
       setIsLoading(true);
-      await updateProfile(data);
+      await updateProfile({
+        name: data.name,
+        family: data.family,
+        mobile: data.mobile,
+        dob: data.dob,
+        favorites: data.favorites,
+        bio: data.bio,
+      });
       alert('Profile updated successfully!');
     } catch (error) {
       console.error(error);

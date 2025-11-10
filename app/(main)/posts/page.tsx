@@ -1,7 +1,16 @@
 import { Metadata } from 'next';
 import { fetchPosts } from '../../shared/lib/api';
-import { BlogCard, Pagination } from '../../components';
+import { BlogCard } from '../../components';
 import { Layer } from '../../views';
+import {
+  PaginationContent,
+  Pagination,
+  PaginationItem,
+  PaginationNext,
+  PaginationPrevious,
+  PaginationLink,
+} from '@/app/components/ui/pagination';
+import { routes } from '@/app/shared/lib/routes';
 
 const DOMAIN_URL =
   process.env.NEXT_PUBLIC_DOMAIN_URL || 'http://localhost:3000';
@@ -52,7 +61,7 @@ export async function generateMetadata({
 
 export default async function Posts({ searchParams }: IPostsPageProps) {
   const { page } = await searchParams;
-  const currentPage = Number(page) || 1;
+  const currentPage = Number(page) ?? 0;
   const { data: posts, totalPages } = await fetchPosts(
     currentPage,
     ITEMS_PER_PAGE as number,
@@ -67,7 +76,32 @@ export default async function Posts({ searchParams }: IPostsPageProps) {
           ))}
         </div>
 
-        <Pagination totalPages={totalPages} currentPage={currentPage} />
+        <Pagination>
+          <PaginationContent>
+            {currentPage > 0 && (
+              <PaginationItem>
+                <PaginationPrevious href={routes.posts(currentPage - 1)} />
+              </PaginationItem>
+            )}
+
+            {Array.from({ length: 10 }).map((_, i) => (
+              <PaginationItem key={i}>
+                <PaginationLink
+                  href={routes.posts(i)}
+                  isActive={i === currentPage}
+                >
+                  {i}
+                </PaginationLink>
+              </PaginationItem>
+            ))}
+
+            {currentPage < totalPages - 1 && (
+              <PaginationItem>
+                <PaginationNext href={routes.posts(currentPage + 1)} />
+              </PaginationItem>
+            )}
+          </PaginationContent>
+        </Pagination>
       </div>
     </Layer>
   );

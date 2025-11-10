@@ -1,4 +1,4 @@
-import type { IPost } from '@/app/shared/types';
+import type { IPost } from '../../types/interface';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 

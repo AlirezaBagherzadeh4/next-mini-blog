@@ -72,10 +72,8 @@
     }
   ],
   "profile": {
-    "id": 1,
-    "name": "Ali",
+    "name": "Alir",
     "family": "Reza",
-    "email": "ali@example.com",
     "mobile": "+989121234567",
     "dob": "1995-06-21",
     "favorites": [
