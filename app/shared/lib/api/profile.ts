@@ -3,6 +3,7 @@ import {
   profileUpdateSchema,
 } from '@/app/shared/validators/profile';
 import { IUserProfile } from '../../types/interface';
+import { toast } from 'sonner';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000';
 
@@ -17,15 +18,18 @@ export const updateProfile = async (data: ProfileUpdateInput) => {
   const parsed = profileUpdateSchema.safeParse(data);
 
   if (!parsed.success) {
-    console.error('❌ Zod validation failed:', parsed.error.flatten());
-    throw new Error(parsed.error.issues?.[0]?.message ?? 'Invalid input');
+    toast.error('َُInvalid inputs to update profile!');
   }
 
   const res = await fetch(`${API_URL}/profile`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(parsed?.data),
+    body: JSON.stringify({
+      ...parsed.data,
+      id: profile?.id,
+      email: profile?.email,
+    }),
   });
-  if (!res.ok) throw new Error('Failed to update profile');
+  if (!res.ok) toast.error('َُFailed to update profile!');
   return res.json();
 };

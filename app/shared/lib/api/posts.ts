@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import type { IPost } from '../../types/interface';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
@@ -21,7 +22,7 @@ export const fetchPosts = async (
 export const fetchPostById = async (id: string): Promise<IPost> => {
   try {
     const res = await fetch(`${API_URL}/posts/${id}`);
-    if (!res.ok) throw new Error('Failed to fetch posts');
+    if (!res.ok) notFound();
     return res.json();
   } catch (err) {
     throw err;

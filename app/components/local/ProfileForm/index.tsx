@@ -7,6 +7,7 @@ import type { IUserProfile, IFavorite } from '@/app/shared/types/interface';
 import { profileSchema } from '@/app/shared/validators/profile';
 import { Field, Button, Dropdown } from '../../global';
 import { updateProfile } from '@/app/shared/lib/api';
+import { toast } from 'sonner';
 
 export interface IProfileForm {
   profile: IUserProfile;
@@ -40,9 +41,9 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
         favorites: data.favorites,
         bio: data.bio,
       });
-      alert('Profile updated successfully!');
+      toast.success('Profile updated successfully!');
     } catch (error) {
-      console.error(error);
+      toast.error('َُFailed to update profile!');
     } finally {
       setIsLoading(false);
     }

@@ -4,6 +4,7 @@ import './globals.css';
 import { ReactQueryProvider } from './shared/lib/react-query';
 import { Suspense } from 'react';
 import Loading from './loading';
+import { Toaster } from './components/ui/sonner';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -53,7 +54,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Suspense fallback={<Loading />}>
-          <ReactQueryProvider>{children}</ReactQueryProvider>
+          <ReactQueryProvider>
+            {children}
+            <Toaster />
+          </ReactQueryProvider>
         </Suspense>
       </body>
     </html>

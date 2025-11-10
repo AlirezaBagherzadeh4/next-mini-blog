@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { LoginDialog } from '@/app/components';
+import { User } from 'lucide-react';
 
 export const Header: React.FC = () => {
   return (
@@ -17,7 +17,10 @@ export const Header: React.FC = () => {
             Dog Factory
           </h1>
         </Link>
-        <LoginDialog />
+        <Link href="/profile" target="_blank" className="w-fit h-max flex justify-between gap-">
+          <User color="#ffffff" />
+          Profile
+        </Link>
       </div>
     </header>
   );

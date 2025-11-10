@@ -12,7 +12,7 @@ export interface IUserProfile {
   mobile: string;
   dob: string;
   favorites: string[];
-  bio: string;
+  bio?: string;
 }
 
 export interface IPost {

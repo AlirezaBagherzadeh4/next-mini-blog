@@ -10,7 +10,7 @@ export const profileSchema = z.object({
     .regex(/^(\+98|0)?9\d{9}$/, 'Invalid Iranian mobile number'),
   dob: z.string(),
   favorites: z.array(z.string()),
-  bio: z.string().max(300, 'Bio must be under 300 characters'),
+  bio: z.string().max(300, 'Bio must be under 300 characters').optional(),
 });
 
 export const profileUpdateSchema = profileSchema

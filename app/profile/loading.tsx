@@ -15,6 +15,7 @@ export default function ProfileLoading() {
         <Skeleton className="h-16 w-full" />
         <Skeleton className="h-16 w-full" />
       </div>
+      <Skeleton className="h-16 w-full" />
       <div className="self-start">
         <Skeleton className="h-9 w-[90px]" />
       </div>
