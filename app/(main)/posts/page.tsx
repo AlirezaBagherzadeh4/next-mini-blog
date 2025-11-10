@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import { fetchPosts } from '../shared/lib/api';
-import { BlogCard, Pagination } from '../components';
-import { Layer } from '../views';
+import { fetchPosts } from '../../shared/lib/api';
+import { BlogCard, Pagination } from '../../components';
+import { Layer } from '../../views';
 
 const DOMAIN_URL =
   process.env.NEXT_PUBLIC_DOMAIN_URL || 'http://localhost:3000';

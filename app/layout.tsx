@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { ReactQueryProvider } from './shared/lib/react-query';
-import { Header, Footer } from './views';
 import { Suspense } from 'react';
 import Loading from './loading';
 
@@ -54,15 +53,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Suspense fallback={<Loading />}>
-          <ReactQueryProvider>
-            <Header />
-            <main className="mt-16 flex h-fit w-full grow items-center justify-center">
-              <div className="flex h-full w-full items-start justify-center">
-                {children}
-              </div>
-            </main>
-            <Footer />
-          </ReactQueryProvider>
+          <ReactQueryProvider>{children}</ReactQueryProvider>
         </Suspense>
       </body>
     </html>
