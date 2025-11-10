@@ -78,7 +78,7 @@
     "email": "ali@example.com",
     "mobile": "+989121234567",
     "dob": "1995-06-21",
-    "favorites": ["Labrador Retriever", "German Shepherd"],
+    "favorites": ["labrador_retriever", "german_shepherd"],
     "bio": "Frontend developer focused on performance optimization."
   },
   "favorites": [

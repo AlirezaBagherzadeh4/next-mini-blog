@@ -26,7 +26,7 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
       bio: profile.bio,
     },
   });
-  const { handleSubmit } = formMethods;
+  const [selected, setSelected] = useState<string[]>(profile?.favorites);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const onSubmit = async (data: IUserProfile) => {
@@ -45,7 +45,7 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
   return (
     <FormProvider {...formMethods}>
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={formMethods?.handleSubmit(onSubmit)}
         className="flex h-fit w-fit flex-col items-center justify-between gap-8"
       >
         <div className="flex h-fit w-full items-center justify-between gap-4">
@@ -58,9 +58,16 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
         </div>
         <div className="flex h-fit w-full items-center justify-between gap-4">
           <Field label="date of birth" name="dob" type="date" />
-          <Field label="bio" name="bio" type="text" />
+          <Dropdown
+            options={favorites}
+            selected={selected}
+            onChange={setSelected}
+            placeholder="Select a dog breed..."
+            emptyText="No dog breeds found."
+            label="favorites"
+          />
         </div>
-        <Dropdown items={favorites} />
+        <Field label="bio" name="bio" type="text" />
         <div className="self-start">
           <Button type="submit" disabled={isLoading} loading={isLoading}>
             Submit!
