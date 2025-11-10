@@ -4,9 +4,9 @@ export interface IUserProfile {
   family: string;
   email: string;
   mobile: string;
-  dob?: string;
-  favorites?: string[];
-  bio?: string;
+  dob: string;
+  favorites: string[];
+  bio: string;
 }
 
 export interface IFavoriteOption {
