@@ -21,7 +21,11 @@ export const fetchPosts = async (
 };
 export const fetchPostById = async (id: string): Promise<IPost> => {
   try {
-    const res = await fetch(`${API_URL}/posts/${id}`);
+    const res = await fetch(`${API_URL}/posts/${id}`, {
+      next: {
+        revalidate: Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME) ?? 120,
+      },
+    });
     if (!res.ok) notFound();
     return res.json();
   } catch (err) {

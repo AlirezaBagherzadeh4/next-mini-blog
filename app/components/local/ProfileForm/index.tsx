@@ -1,13 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import { useForm, FormProvider, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { IUserProfile, IFavorite } from '@/app/shared/types/interface';
 import { profileSchema } from '@/app/shared/validators/profile';
 import { Field, Button, Dropdown } from '../../global';
-import { updateProfile } from '@/app/shared/lib/api';
-import { toast } from 'sonner';
+import { useUpdateProfile } from '@/app/shared/hooks/useUpdateProfile';
 
 export interface IProfileForm {
   profile: IUserProfile;
@@ -28,25 +26,11 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
       bio: profile.bio,
     },
   });
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const onSubmit = async (data: IUserProfile) => {
-    try {
-      setIsLoading(true);
-      await updateProfile({
-        name: data.name,
-        family: data.family,
-        mobile: data.mobile,
-        dob: data.dob,
-        favorites: data.favorites,
-        bio: data.bio,
-      });
-      toast.success('Profile updated successfully!');
-    } catch (error) {
-      toast.error('َُFailed to update profile!');
-    } finally {
-      setIsLoading(false);
-    }
+  const mutation = useUpdateProfile();
+
+  const onSubmit = (data: IUserProfile) => {
+    mutation.mutate(data);
   };
 
   return (
@@ -86,7 +70,11 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
         </div>
         <Field label="bio" name="bio" type="text" />
         <div className="self-center md:self-start">
-          <Button type="submit" disabled={isLoading} loading={isLoading}>
+          <Button
+            type="submit"
+            disabled={mutation.isPending}
+            loading={mutation.isPending}
+          >
             Submit!
           </Button>
         </div>

@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000';
 
 export const fetchProfile = async (): Promise<IUserProfile> => {
-  const res = await fetch(`${API_URL}/profile`, { next: { revalidate: 0 } });
+  const res = await fetch(`${API_URL}/profile`, { cache: 'no-store' });
   if (!res.ok) throw new Error('Failed to fetch profile');
   return res.json();
 };
