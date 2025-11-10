@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useForm, FormProvider } from 'react-hook-form';
+import { useForm, FormProvider, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { IUserProfile, IFavorite } from '@/app/shared/types/interface';
 import { profileSchema } from '@/app/shared/validators/profile';
@@ -23,14 +23,13 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
       email: profile.email,
       mobile: profile.mobile,
       dob: profile.dob,
+      favorites: profile.favorites,
       bio: profile.bio,
     },
   });
-  const [selected, setSelected] = useState<string[]>(profile?.favorites);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const onSubmit = async (data: IUserProfile) => {
-    console.log('data', data);
     try {
       setIsLoading(true);
       await updateProfile(data);
@@ -45,7 +44,7 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
   return (
     <FormProvider {...formMethods}>
       <form
-        onSubmit={formMethods?.handleSubmit(onSubmit)}
+        onSubmit={formMethods.handleSubmit(onSubmit)}
         className="flex h-fit w-fit flex-col items-center justify-between gap-8"
       >
         <div className="flex h-fit w-full items-center justify-between gap-4">
@@ -58,13 +57,23 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
         </div>
         <div className="flex h-fit w-full items-center justify-between gap-4">
           <Field label="date of birth" name="dob" type="date" />
-          <Dropdown
-            options={favorites}
-            selected={selected}
-            onChange={setSelected}
-            placeholder="Select a dog breed..."
-            emptyText="No dog breeds found."
-            label="favorites"
+          <Controller
+            name={'favorites'}
+            control={formMethods.control}
+            defaultValue={[]}
+            render={({ field }) => (
+              <Dropdown
+                {...field}
+                options={favorites}
+                selected={formMethods.getValues('favorites') ?? []}
+                onChange={(favorites) =>
+                  formMethods.setValue('favorites', favorites)
+                }
+                placeholder="Select a dog breed..."
+                emptyText="No dog breeds found."
+                label="favorites"
+              />
+            )}
           />
         </div>
         <Field label="bio" name="bio" type="text" />
