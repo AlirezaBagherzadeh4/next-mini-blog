@@ -2,7 +2,7 @@ import {
   ProfileUpdateInput,
   profileUpdateSchema,
 } from '@/app/shared/validators/profile';
-import type { IUserProfile } from '@/app/shared/types';
+import { IUserProfile } from '../../types/interface';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000';
 

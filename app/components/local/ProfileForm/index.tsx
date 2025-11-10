@@ -3,30 +3,27 @@
 import { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { IUserProfile } from '@/app/shared/types';
+import type { IUserProfile, IFavorite } from '@/app/shared/types/interface';
 import { profileSchema } from '@/app/shared/validators/profile';
-import { Field, Button } from '../../global';
+import { Field, Button, Dropdown } from '../../global';
 import { updateProfile } from '@/app/shared/lib/api';
 
-export const ProfileForm: React.FC<IUserProfile> = ({
-  id,
-  name,
-  family,
-  email,
-  mobile,
-  dob,
-  bio,
-}) => {
+export interface IProfileForm {
+  profile: IUserProfile;
+  favorites: IFavorite[];
+}
+
+export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
   const formMethods = useForm<IUserProfile>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
-      id,
-      name,
-      family,
-      email,
-      mobile,
-      dob,
-      bio,
+      id: profile.id,
+      name: profile.name,
+      family: profile.family,
+      email: profile.email,
+      mobile: profile.mobile,
+      dob: profile.dob,
+      bio: profile.bio,
     },
   });
   const { handleSubmit } = formMethods;
@@ -63,6 +60,7 @@ export const ProfileForm: React.FC<IUserProfile> = ({
           <Field label="date of birth" name="dob" type="date" />
           <Field label="bio" name="bio" type="text" />
         </div>
+        <Dropdown items={favorites} />
         <div className="self-start">
           <Button type="submit" disabled={isLoading} loading={isLoading}>
             Submit!

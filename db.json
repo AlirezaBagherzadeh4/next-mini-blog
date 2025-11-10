@@ -74,18 +74,18 @@
   "profile": {
     "id": 1,
     "name": "Ali",
-    "family": "Rezaei",
+    "family": "Reza",
     "email": "ali@example.com",
     "mobile": "+989121234567",
     "dob": "1995-06-21",
-    "favorites": ["React", "Next.js"],
+    "favorites": ["Labrador Retriever", "German Shepherd"],
     "bio": "Frontend developer focused on performance optimization."
   },
   "favorites": [
-    { "id": 1, "label": "React" },
-    { "id": 2, "label": "Next.js" },
-    { "id": 3, "label": "TypeScript" },
-    { "id": 4, "label": "Tailwind" },
-    { "id": 5, "label": "React Query" }
+    { "id": 1, "label": "Labrador Retriever", "value": "labrador_retriever" },
+    { "id": 2, "label": "German Shepherd", "value": "german_shepherd" },
+    { "id": 3, "label": "Golden Retriever", "value": "golden_retriever" },
+    { "id": 4, "label": "Bulldog", "value": "bulldog" },
+    { "id": 5, "label": "Beagle", "value": "beagle" }
   ]
 }

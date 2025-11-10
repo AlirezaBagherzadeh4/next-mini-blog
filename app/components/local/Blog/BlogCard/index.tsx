@@ -1,6 +1,6 @@
 'use client';
 
-import type { IPost } from '@/app/shared/types';
+import type { IPost } from '@/app/shared/types/interface';
 import Link from 'next/link';
 import { routes } from '@/app/shared/lib/routes';
 import Image from 'next/image';

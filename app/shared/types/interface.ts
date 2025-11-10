@@ -1,3 +1,9 @@
+export interface IFavorite {
+  id: number;
+  value: string;
+  label: string;
+}
+
 export interface IUserProfile {
   id: number;
   name: string;
@@ -9,7 +15,10 @@ export interface IUserProfile {
   bio: string;
 }
 
-export interface IFavoriteOption {
+export interface IPost {
   id: number;
-  label: string;
+  title: string;
+  body: string;
+  author: string;
+  image: string;
 }
