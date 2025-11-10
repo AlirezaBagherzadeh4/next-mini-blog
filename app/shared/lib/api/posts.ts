@@ -4,21 +4,21 @@ import type { IPost } from '../../types/interface';
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
 export const fetchPosts = async (
-  page: number,
   limit: number,
+  page = 1,
 ): Promise<{ data: IPost[]; totalPages: number }> => {
-  const res = await fetch(`${API_URL}/posts?_page=${page}&_limit=${limit}`, {
-    cache: 'no-store',
-  });
+  const res = await fetch(`${API_URL}/posts`);
   if (!res.ok) throw new Error('Failed to fetch posts');
 
-  const totalCount = Number(res.headers.get('X-Total-Count')) || 0;
-  const totalPages = Math.ceil(totalCount / limit);
   const data = await res.json();
+  const totalPages = Math.ceil(data.length / limit);
 
-  return { data, totalPages };
+  const start = (page - 1) * limit;
+  const end = start + limit;
+  const paginatedData = data.slice(start, end);
+
+  return { data: paginatedData, totalPages };
 };
-
 export const fetchPostById = async (id: string): Promise<IPost> => {
   try {
     const res = await fetch(`${API_URL}/posts/${id}`);

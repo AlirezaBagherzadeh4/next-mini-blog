@@ -1,16 +1,8 @@
 import { Metadata } from 'next';
 import { fetchPosts } from '../../shared/lib/api';
-import { BlogCard } from '../../components';
+import { BlogCard, GPagination } from '../../components';
 import { Layer } from '../../views';
-import {
-  PaginationContent,
-  Pagination,
-  PaginationItem,
-  PaginationNext,
-  PaginationPrevious,
-  PaginationLink,
-} from '@/app/components/ui/pagination';
-import { routes } from '@/app/shared/lib/routes';
+import { redirect } from 'next/navigation';
 
 const DOMAIN_URL =
   process.env.NEXT_PUBLIC_DOMAIN_URL || 'http://localhost:3000';
@@ -25,10 +17,7 @@ export async function generateMetadata({
 }: IPostsPageProps): Promise<Metadata> {
   const { page } = await searchParams;
   const currentPage = Number(page) || 1;
-  const { data: posts } = await fetchPosts(
-    currentPage,
-    ITEMS_PER_PAGE as number,
-  );
+  const { data: posts } = await fetchPosts(Number(ITEMS_PER_PAGE), currentPage);
 
   return {
     title: `DogFactory Blog ${currentPage}`,
@@ -61,11 +50,15 @@ export async function generateMetadata({
 
 export default async function Posts({ searchParams }: IPostsPageProps) {
   const { page } = await searchParams;
-  const currentPage = Number(page) ?? 0;
+  const currentPage = Number(page) || 1;
   const { data: posts, totalPages } = await fetchPosts(
+    Number(ITEMS_PER_PAGE),
     currentPage,
-    ITEMS_PER_PAGE as number,
   );
+
+  if (posts.length === 0 && currentPage !== 1) {
+    return redirect('/posts');
+  }
 
   return (
     <Layer>
@@ -75,33 +68,11 @@ export default async function Posts({ searchParams }: IPostsPageProps) {
             <BlogCard key={post.id} {...post} />
           ))}
         </div>
-
-        <Pagination>
-          <PaginationContent>
-            {currentPage > 0 && (
-              <PaginationItem>
-                <PaginationPrevious href={routes.posts(currentPage - 1)} />
-              </PaginationItem>
-            )}
-
-            {Array.from({ length: 10 }).map((_, i) => (
-              <PaginationItem key={i}>
-                <PaginationLink
-                  href={routes.posts(i)}
-                  isActive={i === currentPage}
-                >
-                  {i}
-                </PaginationLink>
-              </PaginationItem>
-            ))}
-
-            {currentPage < totalPages - 1 && (
-              <PaginationItem>
-                <PaginationNext href={routes.posts(currentPage + 1)} />
-              </PaginationItem>
-            )}
-          </PaginationContent>
-        </Pagination>
+        <GPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          className="mt-8"
+        />
       </div>
     </Layer>
   );
