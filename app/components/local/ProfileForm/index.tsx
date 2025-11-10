@@ -53,17 +53,17 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
     <FormProvider {...formMethods}>
       <form
         onSubmit={formMethods.handleSubmit(onSubmit)}
-        className="flex h-fit w-fit flex-col items-center justify-between gap-8"
+        className="flex h-fit w-full flex-col items-center justify-between gap-8 md:w-fit"
       >
-        <div className="flex h-fit w-full items-center justify-between gap-4">
+        <div className="flex h-fit w-full flex-col items-center justify-between gap-4 md:flex-row">
           <Field label="name" name="name" type="text" required />
           <Field label="family" name="family" type="text" required />
         </div>
-        <div className="flex h-fit w-full items-center justify-between gap-4">
+        <div className="flex h-fit w-full flex-col items-center justify-between gap-4 md:flex-row">
           <Field label="email" name="email" type="email" disabled />
           <Field label="mobile" name="mobile" type="tel" required />
         </div>
-        <div className="flex h-fit w-full items-center justify-between gap-4">
+        <div className="flex h-fit w-full flex-col items-center justify-between gap-4 md:flex-row">
           <Field label="date of birth" name="dob" type="date" />
           <Controller
             name={'favorites'}
@@ -85,7 +85,7 @@ export const ProfileForm: React.FC<IProfileForm> = ({ profile, favorites }) => {
           />
         </div>
         <Field label="bio" name="bio" type="text" />
-        <div className="self-start">
+        <div className="self-center md:self-start">
           <Button type="submit" disabled={isLoading} loading={isLoading}>
             Submit!
           </Button>

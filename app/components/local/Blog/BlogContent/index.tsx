@@ -1,6 +1,6 @@
 'use client';
 
-import type { IPost } from '@/app/shared/types';
+import type { IPost } from '@/app/shared/types/interface';
 import Image from 'next/image';
 
 export const BlogContent: React.FC<IPost> = ({

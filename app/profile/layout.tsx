@@ -15,8 +15,8 @@ export default function ProfileLayout({
           <House color="#ffffff" className="cursor-pointer" />
         </Link>
       </div>
-      <div className="flex h-full w-full items-center justify-center bg-inherit">
-        <div className="flex h-fit w-full max-w-lg items-center justify-center rounded-lg border border-black p-16">
+      <div className="flex h-full w-full items-center justify-center overflow-y-scroll bg-inherit">
+        <div className="flex h-full w-full max-w-lg items-center justify-center rounded-lg border-black p-4 md:h-fit md:border md:p-8 xl:p-16">
           <Suspense fallback={<ProfileLoading />}>{children}</Suspense>
         </div>
       </div>
