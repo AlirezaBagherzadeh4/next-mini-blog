@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '@/app/components';
+import { LoginDialog } from '@/app/components';
 
 export const Header: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
             Dog Factory
           </h1>
         </Link>
-        <Button variant="secondary">Login</Button>
+        <LoginDialog />
       </div>
     </header>
   );
