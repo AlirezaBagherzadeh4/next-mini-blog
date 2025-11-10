@@ -16,8 +16,12 @@ export async function generateMetadata({
   searchParams,
 }: IPostsPageProps): Promise<Metadata> {
   const { page } = await searchParams;
-  const currentPage = Number(page) || 1;
+  let currentPage = Number(page) || 1;
   const { data: posts } = await fetchPosts(Number(ITEMS_PER_PAGE), currentPage);
+
+  if (posts.length === 0) {
+    currentPage = 1;
+  }
 
   return {
     title: `DogFactory Blog ${currentPage}`,
